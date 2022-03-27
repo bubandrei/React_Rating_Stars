@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Recipe from "./Recipe";
+import Menu from "./Menu";
 
 const data = [
   {
@@ -39,19 +39,6 @@ const data = [
   }
 ];
 
-
-function Menu(props) {
-  return (
-    <>
-      <h1>{props.title}</h1>
-      <div>
-        {props.data.map((item, i) => (
-          <Recipe key={i} recipe={item} />))
-        }
-      </div>
-    </>
-  )
-}
 ReactDOM.render(
   <Menu title='MENU' data={data} />,
   document.getElementById('root')
