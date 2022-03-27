@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
+import React from "react";
+import ReactDOM from "react-dom";
+import Recipe from "./Recipe";
 
 const data = [
   {
@@ -39,54 +39,20 @@ const data = [
   }
 ];
 
+
 function Menu(props) {
   return (
-    <div>
-      <h1>
-        <div>{props.title}</div>
-      </h1>
+    <>
+      <h1>{props.title}</h1>
       <div>
-        {
-          props.recipes.map((rec, i) => <Recipe key={i} name={rec.name} ingredients={rec.ingredients} steps={rec.steps} />)
+        {props.data.map((item, i) => (
+          <Recipe key={i} recipe={item} />))
         }
       </div>
-    </div>
+    </>
   )
 }
-
-// function Menu(props) {
-//   return (
-//     <article>
-//       <header>
-//         <h1>{props.title}</h1>
-//       </header>
-//       <div>
-//         {props.recipes.map((recipe, i) => (
-//           <Recipe key={i} {...recipe} />
-//         ))}
-//       </div>
-//     </article>
-//   );
-// }
-
-
-// 
-
-function Recipe(props) {
-  console.log(props)
-  return (
-    <div>
-      <h3>
-        <div>{props.name}</div>
-      </h3>
-      <div>{props.ingredients.map((ing, i) => (<li>{ing.name}</li>))}</div>
-      <div>{props.steps.map((step, i)=>(<ul>{step}</ul>))}</div>
-    </div>
-  )
-}
-
 ReactDOM.render(
-  <Menu recipes={data} title='Best choice' />,
+  <Menu title='MENU' data={data} />,
   document.getElementById('root')
-
 )
